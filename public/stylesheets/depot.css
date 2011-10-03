@@ -57,11 +57,11 @@
 }
 
 #product_list .list_line_even {
-  background:   #e0f8f8;
+  background:   #FFF;
 }
 
 #product_list .list_line_odd {
-  background:   #f8b0f8;
+  background:   #CCC;
 }
 
 /* An entry in the store catalog */
