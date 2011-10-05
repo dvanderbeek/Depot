@@ -17,12 +17,16 @@
   </div>
   <div id="columns">
     <div id="side">
+    	<% if @cart %>
+	    	<% hidden_div_if(@cart.line_items.empty?, :id => "cart") do %>
+				<%= render @cart %>
+			<% end %>
+		<% end %>
       <%= link_to("Catalog", store_path) %><br />
       <%= link_to("Products", products_path) %><br />
       <a href="http://www..../faq">Questions</a><br />
       <a href="http://www..../news">News</a><br />
       <a href="http://www..../contact">Contact</a><br />
-      <span style="color: #fff;"><%= Time.now.to_formatted_s(:long) %></span>
     </div>
     <div id="main">
       <%= yield %>

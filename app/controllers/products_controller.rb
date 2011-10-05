@@ -3,7 +3,7 @@ class ProductsController < ApplicationController
   # GET /products.xml
   def index
     @products = Product.all
-
+    
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @products }
@@ -78,6 +78,14 @@ class ProductsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to(products_url) }
       format.xml  { head :ok }
+    end
+  end
+  
+  def who_bought
+    @product = Product.find(params[:id])
+    respond_to do |format|
+      format.atom
+      format.xml { render :xml => @product }
     end
   end
 end

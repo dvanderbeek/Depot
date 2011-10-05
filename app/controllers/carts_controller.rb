@@ -3,6 +3,7 @@ class CartsController < ApplicationController
   # GET /carts.xml
   def index
     @carts = Cart.all
+    @cart = current_cart
 
     respond_to do |format|
       format.html # index.html.erb
@@ -79,9 +80,10 @@ class CartsController < ApplicationController
   def destroy
     @cart = Cart.find(params[:id])
     @cart.destroy
+    session[:cart_id] = nil
 
     respond_to do |format|
-      format.html { redirect_to(carts_url) }
+      format.html { redirect_to(store_url) }
       format.xml  { head :ok }
     end
   end
